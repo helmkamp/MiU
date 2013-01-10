@@ -2,7 +2,7 @@
 <!--
 -Andrew Helmkamp 
 -Project 1
--VFW ####
+-MiU ####
 -->
 <html>
 	<head>
@@ -29,11 +29,20 @@
 			<h1 data-role="header">Time Manager</h1>
 			<p>Manage Your Time with Time Manager!</p>
 			<a href="additem.html" id="mainAdd">Add Item</a>
-			<div data-role="content">	
-				<ul data-role="listview" data-insert="true">
-					<li>
+			<div data-role="content">
+				<div data-role="fieldcontain">
+					<label>Search for an Item</label>
+					<input type="search" id="search" name="search" value="" />
+				</div>	
+				<ul data-role="listview" data-inset="true">
+					<li data-role="divider">
 						Browse by...
 					</li>
+					<li><a href="#">Start Date</a></li>
+					<li><a href="#">End Date</a></li>
+					<li><a href="#">Category</a></li>
+					<li><a href="#">Priority</a></li>
+					<li><a href="#">Highlighted</a></li>
 				</ul>
 			</div>
 		</div>
