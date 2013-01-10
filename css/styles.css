@@ -40,6 +40,14 @@ a, .visited {
 }
 
 /***
+*Footer (I didn't like JQM's default)
+***/
+#footer {
+	font-size: 10px;
+	text-align: center;
+}
+
+/***
 *Properties for links on the Add Item Page
 ***/
 #clear {
@@ -48,8 +56,8 @@ a, .visited {
 }
 
 #errors {
-		color: red;
-		font-weight: bold;
+	color: red;
+	font-weight: bold;
 }
 
 .editLinks {
