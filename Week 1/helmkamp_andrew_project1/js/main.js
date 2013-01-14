@@ -1,8 +1,8 @@
 /*global JSON*/
 /****************
 *Andrew Helmkamp
-*VFW 1212
-*Project 4
+*MiU 1301
+*Project 1
 *Javascript file
 ****************/
 
