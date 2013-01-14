@@ -20,33 +20,27 @@
 		<!-- Local Stylesheet -->
 		<link rel="stylesheet" type="text/css" href="./css/styles.css">
 		<!--Page Title-->
-		<title>Time Manager</title>
+		<title>Search Items</title>
 
 	</head>
 
 	<body>
 		<div class="wrap" data-role="page" data-theme="a">
-			<h1 data-role="header">Time Manager</h1>
+			<h1 data-role="header">Search Items</h1>
 			<div data-role="content">
-				<a href="additem.html" rel="external" id="mainAdd"><img src="./img/feature.png"></a>
+				
 				<div data-role="fieldcontain">
-					<label>Search for a Task</label>
-					<input type="search" id="search" name="search" value="" />
+					<label for="category">Catagory</label> 
+					<select name="category" id="category">
+						<option value="Work">Work</option>
+						<option value="School" selected="selected">School</option>
+						<option value="Personal">Personal</option>
+					</select> <br />
+					<input type="text" id="search" name="search" value="" placeholder="Search for a Task"/>
+					<input type="button" value="Search" id="searchBtn" />
 				</div>	
-				<ul data-role="listview" data-inset="true">
-					<li data-role="divider">
-						Browse by...
-					</li>
-					<li><a href="404.html" rel="external">Start Date</a></li>
-					<li><a href="404.html" rel="external">End Date</a></li>
-					<li><a href="404.html" rel="external">Category</a></li>
-					<li><a href="404.html" rel="external">Priority</a></li>
-					<li><a href="404.html" rel="external">Highlighted</a></li>
-				</ul>
-				<div id="footer">Calander image by <a href="http://www.IconDrawer.com">Eugen Buzuk</a></div>
 			</div>
 		</div>
-		
-
+		<script type="text/javascript" src="./js/main.js"></script>
 	</body>
 </html>

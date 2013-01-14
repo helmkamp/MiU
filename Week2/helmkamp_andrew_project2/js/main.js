@@ -12,25 +12,11 @@ window.addEventListener("DOMContentLoaded", function() {
 	var highlightedValue = "No",
 	    hideForm = false;
 
-	//Set Click Events
-	var displayLink = ge('display');
-	displayLink.addEventListener("click", getData);
-	var addLink = ge('add');
-	addLink.addEventListener("click", addItem);
-	var clearLink = ge('clear');
-	clearLink.addEventListener("click", clearLocal);
-	var save = ge('submit');
-	save.addEventListener("click", validate);
-
-	var slider = ge('priority');
-	slider.addEventListener("change", showValue)    
-
-	var search = ge('searchBtn');
-	search.addEventListener("click", getSearch);
+	
 
 	//getElementById Function
-	function ge (x) {
-        return document.getElementById(x);
+	function ge(x) {
+		return document.getElementById(x);
 	}
 
 	//Show the current value of the range input
@@ -149,7 +135,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		return false;
 	}
 
-	//Add default data
+	//Add default test data
 	function autoFillData () {
 		//The JSON data used for this is in the json.js file
 		for(var n in json) {
@@ -286,7 +272,40 @@ window.addEventListener("DOMContentLoaded", function() {
 	}
 
 	function getSearch () {
+		var category = ge('groups').value;
+		var term = ge('search').value;
 		
+		//Searching by Category Only
+		if (term === "") {
+			var len = localStorage.length;
+			for (i=0; i<len; i++) {
+				var key = localStorage.key(i);
+				var value = localStorage.getItem(key);
+				var obj = JSON.parse(value);
+				for (q in obj) {
+					console.log(obj[q][1]);
+				}
+			}
+		}
+		
+		//Searching by Category and Term
+		//if (category != "" && term != "") {
+		//	
+		//}
 	}
-
+	//Set Click Events
+		var displayLink = ge('display');
+		displayLink.addEventListener("click", getData);
+		var addLink = ge('add');
+		addLink.addEventListener("click", addItem);
+		var clearLink = ge('clear');
+		clearLink.addEventListener("click", clearLocal);
+		var save = ge('submit');
+		save.addEventListener("click", validate);
+	
+		var slider = ge('priority');
+		slider.addEventListener("change", showValue);    
+	
+		var search = ge('searchBtn');
+		search.addEventListener("click", getSearch);
 });

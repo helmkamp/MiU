@@ -50,7 +50,7 @@ a, .visited {
 /***
 *Properties for links on the Add Item Page
 ***/
-#clear {
+.linkSep {
 	border-right: solid 1px #000;
 	padding-right: .3em;
 }

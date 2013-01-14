@@ -8,15 +8,23 @@
 		<meta name="description" content="Manage your time better" />
 		<meta name="author" content="Andrew Helmkamp" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<!-- jQuery Mobile CDN -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+		<!-- Local Stylesheet -->
 		<link rel="stylesheet" type="text/css" href="./css/styles.css">
 		<!--Page Title-->
 		<title>Add Item</title>
 
 	</head>
 	<body>
-		<div id="wrap">
+		<div id="wrap" data-role="page" data-theme="a">
 			<h1 id="head">Add a New Item</h1>
-			<a href="#" id="clear">Clear Stored Data</a> <a href="#" id="display">Display Data</a><a href="#" id="add" style="display:none">Add New Item</a>
+			<a href="#" class="linkSep" id="clear">Clear Stored Data</a>
+			<a href="#" class="linkSep" id="display">Display Data</a>
+			<a href="#" class="linkSep" id="add" style="display:none">Add New Item</a>
+			<a href="search.html" rel="external" id="searchLink">Search</a>
 			<form action="#" method="post" id="todoForm">
 				<fieldset>
 					<legend>Item Information</legend>
