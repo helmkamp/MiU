@@ -1,7 +1,13 @@
 *.txt
+
 .DS_Store
+
 *.docx
 idea
+
 *.zip
+
 *.pdf
+
 *.komodoproject
+main1.js
