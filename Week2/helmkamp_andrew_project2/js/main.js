@@ -12,6 +12,22 @@ window.addEventListener("DOMContentLoaded", function() {
 	var highlightedValue = "No",
 	    hideForm = false;
 
+	//Set Click Events
+	var displayLink = ge('display');
+	displayLink.addEventListener("click", getData);
+	var addLink = ge('add');
+	addLink.addEventListener("click", addItem);
+	var clearLink = ge('clear');
+	clearLink.addEventListener("click", clearLocal);
+	var save = ge('submit');
+	save.addEventListener("click", validate);
+
+	var slider = ge('priority');
+	slider.addEventListener("change", showValue)    
+
+	var search = ge('searchBtn');
+	search.addEventListener("click", getSearch);
+
 	//getElementById Function
 	function ge (x) {
         return document.getElementById(x);
@@ -269,20 +285,8 @@ window.addEventListener("DOMContentLoaded", function() {
 		
 	}
 
-	
-	//Set Link and Submit Click Events
-	var displayLink = ge('display');
-	displayLink.addEventListener("click", getData);
-	var addLink = ge('add');
-	addLink.addEventListener("click", addItem);
-	var clearLink = ge('clear');
-	clearLink.addEventListener("click", clearLocal);
-	var save = ge('submit');
-	save.addEventListener("click", validate);
-
-	var slider = ge('priority');
-	slider.addEventListener("change", showValue)
-
-
+	function getSearch () {
+		
+	}
 
 });
