@@ -1,32 +1,30 @@
 /*global JSON*/
 /****************
 *Andrew Helmkamp
-*MiU 1301
-*Project 2
+*VFW 1212
+*Project 4
 *Javascript file
 ****************/
 
-window.addEventListener("DOMContentLoaded", function() {
+$(document).ready(function() {
 
 	//"Global" Variables
 	var highlightedValue = "No",
 	    hideForm = false;
 
-	
-
 	//getElementById Function
-	function ge(x) {
-		return document.getElementById(x);
+	function getID (x) {
+        return document.getElementById(x);
 	}
 
 	//Show the current value of the range input
 	function showValue() {
-        document.getElementById("priorityNum").innerHTML = ge('priority').value;
+        document.getElementById("priorityNum").innerHTML = getID('priority').value;
 	}
 
 	function getHighlightedValue() {
-		if (ge('highlight').checked) {
-			highlightedValue = ge('highlight').value;
+		if (getID('highlight').checked) {
+			highlightedValue = getID('highlight').value;
 		} else{
 			highlightedValue = "No";
         }
@@ -43,13 +41,13 @@ window.addEventListener("DOMContentLoaded", function() {
 		//Object properties contain array with the form label and value
 		getHighlightedValue();
 		var item = {};
-			item.startDate   = ["Start Date:", ge('start').value];
-			item.endDate     = ["End Date:", ge('end').value];
-			item.itemName    = ["Item Name:", ge('itemName').value];
-			item.category    = ["Category:", ge('category').value];
-			item.priority    = ["Priority:", ge('priority').value];
+			item.startDate   = ["Start Date:", getID('start').value];
+			item.endDate     = ["End Date:", getID('end').value];
+			item.itemName    = ["Item Name:", getID('itemName').value];
+			item.category    = ["Category:", getID('category').value];
+			item.priority    = ["Priority:", getID('priority').value];
 			item.highlighted = ["Highlighted:", highlightedValue];
-			item.comments    = ["Comments:", ge('comments').value];
+			item.comments    = ["Comments:", getID('comments').value];
 
 		//Save data into local storage using Stringify
 		localStorage.setItem(id, JSON.stringify(item));
@@ -59,15 +57,15 @@ window.addEventListener("DOMContentLoaded", function() {
 
 	function toggleForm () {
 		if (hideForm) {
-		    ge('head').style.display = "none";
-			ge('todoForm').style.display = "none";
-			ge('display').style.display = "none";
-			ge('add').style.display = "inline";
+		        getID('head').style.display = "none";
+			getID('todoForm').style.display = "none";
+			getID('display').style.display = "none";
+			getID('add').style.display = "inline";
 		} else{
-			ge('todoForm').style.display = "block";
-			ge('display').style.display = "inline";
-			ge('add').style.display = "none";
-			ge('items').style.display = "none";
+			getID('todoForm').style.display = "block";
+			getID('display').style.display = "inline";
+			getID('add').style.display = "none";
+			getID('items').style.display = "none";
         }
     }
 
@@ -80,8 +78,9 @@ window.addEventListener("DOMContentLoaded", function() {
 			makeDiv.setAttribute("id", "items");
 			var makeList = document.createElement('ul');
 			makeDiv.appendChild(makeList);
-			document.body.appendChild(makeDiv);
-			ge('items').style.display = "block";
+			var wrapDiv = getID('wrap');
+			wrapDiv.appendChild(makeDiv);
+			getID('items').style.display = "block";
 			for (var i = 0; i < localStorage.length; i++) {
 				var makeLi = document.createElement('li');
 				var linkLi = document.createElement('li');
@@ -135,7 +134,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		return false;
 	}
 
-	//Add default test data
+	//Add default data
 	function autoFillData () {
 		//The JSON data used for this is in the json.js file
 		for(var n in json) {
@@ -176,21 +175,21 @@ window.addEventListener("DOMContentLoaded", function() {
 		toggleForm();
 		
 		//populate with current values
-		ge('start').value = item.startDate[1];
-		ge('end').value = item.endDate[1];
-		ge('itemName').value = item.itemName[1];
-		ge('category').value = item.category[1];
-		ge('priority').value = item.priority[1];
+		getID('start').value = item.startDate[1];
+		getID('end').value = item.endDate[1];
+		getID('itemName').value = item.itemName[1];
+		getID('category').value = item.category[1];
+		getID('priority').value = item.priority[1];
 		if(item.highlighted[1] === "Yes") {
-			ge('highlight').setAttribute("checked", "checked");
+			getID('highlight').setAttribute("checked", "checked");
 		}
-		ge('comments').value = item.comments[1];
+		getID('comments').value = item.comments[1];
 		
 		//Remove the initial listener from the input 'save contact' button
 		save.removeEventListener("click", storeData);
 		//Change the Submit button value to Edit
-		ge('submit').value = "Edit Item";
-		var editSubmit = ge('submit');
+		getID('submit').value = "Edit Item";
+		var editSubmit = getID('submit');
 		//Save the key value in this function as a property of the editSubmit event
 		editSubmit.key = this.key;
 		editSubmit.addEventListener("click", validate);
@@ -208,7 +207,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	}
 
 	function clearLocal () {
-		var del = confirm("Are you sure you want to delete all data?")
+		var del = confirm("Are you sure you want to delete all data?");
 		if ((del) && (localStorage.length >= 1)) {
 			localStorage.clear();
 			alert("All data has been cleared.");
@@ -221,10 +220,10 @@ window.addEventListener("DOMContentLoaded", function() {
 	
 	function validate(e) {
 		//Define the elements we want to check
-		var getStartDate = ge('start');
-		var getEndDate = ge('end');
-		var getItemName = ge('itemName');
-		var errMsg = ge('errors');
+		var getStartDate = getID('start');
+		var getEndDate = getID('end');
+		var getItemName = getID('itemName');
+		var errMsg = getID('errors');
 
 		//Reset error messages
 		errMsg.innerHTML = "";
@@ -270,20 +269,21 @@ window.addEventListener("DOMContentLoaded", function() {
 		}
 		
 	}
-
+	
 	function getSearch () {
-		var category = ge('groups').value;
-		var term = ge('search').value;
-		
+		var category = getID('category').value;
+		var term = getID('search').value;
+		var len = localStorage.length;
 		//Searching by Category Only
 		if (term === "") {
-			var len = localStorage.length;
 			for (i=0; i<len; i++) {
 				var key = localStorage.key(i);
 				var value = localStorage.getItem(key);
 				var obj = JSON.parse(value);
-				for (q in obj) {
-					console.log(obj[q][1]);
+				if (category === obj.category[1]) {
+					for (var n in obj) {
+						console.log(obj[n][1]);
+					}
 				}
 			}
 		}
@@ -293,19 +293,22 @@ window.addEventListener("DOMContentLoaded", function() {
 		//	
 		//}
 	}
-	//Set Click Events
-		var displayLink = ge('display');
-		displayLink.addEventListener("click", getData);
-		var addLink = ge('add');
-		addLink.addEventListener("click", addItem);
-		var clearLink = ge('clear');
-		clearLink.addEventListener("click", clearLocal);
-		var save = ge('submit');
-		save.addEventListener("click", validate);
+
 	
-		var slider = ge('priority');
-		slider.addEventListener("change", showValue);    
+	//Set Link and Submit Click Events
+	var displayLink = getID('display');
+	displayLink.addEventListener("click", getData);
+	var addLink = getID('add');
+	addLink.addEventListener("click", addItem);
+	var clearLink = getID('clear');
+	clearLink.addEventListener("click", clearLocal);
+	var save = getID('submit');
+	save.addEventListener("click", validate);
 	
-		var search = ge('searchBtn');
-		search.addEventListener("click", getSearch);
+	var slider = getID('priority');
+	slider.addEventListener("change", showValue);
+
+	var search = getID('searchBtn');
+	search.addEventListener("click", getSearch);
+
 });

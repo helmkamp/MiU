@@ -76,25 +76,25 @@ p {
 /***
 *Display properties for displayed data
 ***/
+#items {
+	width: 21em;
+}
 #highlightGreen {
 	color: black;
 	text-shadow: 0 0 0 #444;
 	background-color: green;
-	width: 21em;
 }
 
 #highlightYellow {
 	color: black;
 	text-shadow: 0 0 0 #444;
 	background-color: yellow;
-	width: 21em;
 }
 
 #highlightRed {
 	color: black;
 	text-shadow: 0 0 0 #444;
 	background-color: red;
-	width: 21em;
 }
 
 #pic {
