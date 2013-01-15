@@ -1,0 +1,105 @@
+/*Style based off of jQuery Mobile theme A*/
+
+* {
+	/*Get rid of the highlight when you tap a link*/
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+	font-family: sans-serif;
+	font-size: 14px;
+	color: white;
+}
+
+h1 {
+	border: 1px solid #333;
+	text-align: center;
+	background: -webkit-linear-gradient(top, #3c3c3c, #111);
+	color: white;
+	-webkit-box-shadow: 0px 0px 12px rgba(0,0,0,.6);
+	text-shadow: 0 1px 1px #999;
+	margin: 0px;
+}
+
+ul {
+	list-style-type: none;
+	margin: 1.3em 0;
+	padding: 0;
+}
+
+form {
+	width: 20em;
+	margin: auto;
+}
+
+a, .visited {
+	color: #2489ce;
+	font-weight: bold;
+	outline: 0;
+	text-decoration: none;
+}
+
+/***
+*Footer (I didn't like JQM's default)
+***/
+#footer {
+	font-size: 10px;
+	text-align: center;
+}
+
+/***
+*Properties for links on the Add Item Page
+***/
+#clear {
+	border-right: solid 1px #000;
+	padding-right: .3em;
+}
+
+#errors {
+	color: red;
+	font-weight: bold;
+}
+
+.editLinks {
+	padding-top: .5em;
+	padding-right: 2em;
+	background-color: transparent;
+}
+
+/***
+*Intro text on index page
+***/
+p {
+	text-align: center;
+}
+
+/***
+*Display properties for displayed data
+***/
+#highlightGreen {
+	color: black;
+	text-shadow: 0 0 0 #444;
+	background-color: green;
+	width: 21em;
+}
+
+#highlightYellow {
+	color: black;
+	text-shadow: 0 0 0 #444;
+	background-color: yellow;
+	width: 21em;
+}
+
+#highlightRed {
+	color: black;
+	text-shadow: 0 0 0 #444;
+	background-color: red;
+	width: 21em;
+}
+
+#pic {
+	float: right;
+	padding-right: 3px;
+	padding-top: 3px;
+}
+/****/

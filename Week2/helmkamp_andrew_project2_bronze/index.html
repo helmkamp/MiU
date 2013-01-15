@@ -1,0 +1,52 @@
+<!doctype html>
+<!--
+-Andrew Helmkamp 
+-Project 1
+-MiU 1301
+-->
+<html>
+	<head>
+
+		<!--Meta data -->
+		<meta charset="utf-8" />
+		<meta name="keywords" content="time, manage, management, to do, list" />
+		<meta name="description" content="Manage your time better" />
+		<meta name="author" content="Andrew Helmkamp" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<!-- jQuery Mobile CDN -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+		<!-- Local Stylesheet -->
+		<link rel="stylesheet" type="text/css" href="./css/styles.css">
+		<!--Page Title-->
+		<title>Time Manager</title>
+
+	</head>
+
+	<body>
+		<div class="wrap" data-role="page" data-theme="a">
+			<h1 data-role="header">Time Manager</h1>
+			<div data-role="content">
+				<a href="additem.html" id="mainAdd"><img src="./img/feature.png"></a>
+				<div data-role="fieldcontain">
+					<label>Search for a Task</label>
+					<input type="search" id="search" name="search" value="" />
+				</div>	
+				<ul data-role="listview" data-inset="true">
+					<li data-role="divider">
+						Browse by...
+					</li>
+					<li><a href="#">Start Date</a></li>
+					<li><a href="#">End Date</a></li>
+					<li><a href="#">Category</a></li>
+					<li><a href="#">Priority</a></li>
+					<li><a href="#">Highlighted</a></li>
+				</ul>
+				<div id="footer">Calander image by <a href="http://www.IconDrawer.com">Eugen Buzuk</a></div>
+			</div>
+		</div>
+		
+
+	</body>
+</html>
