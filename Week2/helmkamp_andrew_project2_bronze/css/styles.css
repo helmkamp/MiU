@@ -9,9 +9,10 @@ body {
 	font-family: sans-serif;
 	font-size: 14px;
 	color: white;
+	background: -webkit-linear-gradient(top, #3c3c3c, #111);
 }
 
-h1 {
+#head {
 	border: 1px solid #333;
 	text-align: center;
 	background: -webkit-linear-gradient(top, #3c3c3c, #111);
@@ -42,15 +43,15 @@ a, .visited {
 /***
 *Footer (I didn't like JQM's default)
 ***/
-#footer {
+/*#footer {
 	font-size: 10px;
 	text-align: center;
-}
+}*/
 
 /***
 *Properties for links on the Add Item Page
 ***/
-#clear {
+.links {
 	border-right: solid 1px #000;
 	padding-right: .3em;
 }
@@ -69,32 +70,33 @@ a, .visited {
 /***
 *Intro text on index page
 ***/
-p {
+/*p {
 	text-align: center;
-}
+}*/
 
 /***
 *Display properties for displayed data
 ***/
+#item {
+	width: 21em;
+}
+
 #highlightGreen {
 	color: black;
 	text-shadow: 0 0 0 #444;
 	background-color: green;
-	width: 21em;
 }
 
 #highlightYellow {
 	color: black;
 	text-shadow: 0 0 0 #444;
 	background-color: yellow;
-	width: 21em;
 }
 
 #highlightRed {
 	color: black;
 	text-shadow: 0 0 0 #444;
 	background-color: red;
-	width: 21em;
 }
 
 #pic {
