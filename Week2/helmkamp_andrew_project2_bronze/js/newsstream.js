@@ -17,7 +17,29 @@ $( document ).delegate("#newsstream", "pageinit", function() {
 		imageLi.appendChild(newImage);
 	}
 	
-	//var data = JSON.parse(val);
+	function sortObjectsByStartDate(obj, key) {
+	  obj.sort(function() {
+		return function (a, b){
+		  var startDateA = a[key];
+		  var starteDateB = b[key];
+		  if (startDateA === starteDateB) {
+			return 0;
+		  }
+		  return startDateA > starteDateB ? 1 : -1;
+		};
+	  }());
+	}
+	
+	$.each(localStorage, function(key, val) {
+	  key = localStorage.key(key);
+	  val = localStorage.getItem(key);
+	  var objValue = $.parseJSON(val);
+	  //objValue = sortObjectsByStartDate(objValue.Object, "startDate");
+	  console.log(objValue);
+	  for (n in objValue) {
+		console.log(objValue[n][0] + objValue[n][1]);
+	  }
+	});
 	//var output = '<ul data-role="listview" data-filter="true"';
 	//$.each()
 	
