@@ -9,9 +9,26 @@
 $(document).ready(function() {
 
 	//"Global" Variables
-	var highlightedValue = "No",
-	    hideForm = false;
+	var highlightedValue = "No";
+	    //hideForm = false;
+		
+		//Set Link and Submit Click Events
+	var displayLink = getID('display');
+	displayLink.addEventListener("click", getData);
+	var addLink = getID('add');
+	addLink.addEventListener("click", addItem);
+	var clearLink = getID('clear');
+	clearLink.addEventListener("click", clearLocal);
+	var save = getID('submit');
+	save.addEventListener("click", validate);
+	
+	var slider = getID('priority');
+	slider.addEventListener("change", showValue);
 
+	var search = getID('searchBtn');
+	search.addEventListener("click", getSearch);
+		
+		//var displayFromSearch = getID();
 	//getElementById Function
 	function getID (x) {
         return document.getElementById(x);
@@ -55,24 +72,24 @@ $(document).ready(function() {
 		alert("Item Saved");
 	}
 
-	function toggleForm () {
+	function toggleForm (hide){
+		var hideForm = hide;
 		if (hideForm) {
-		        getID('head').style.display = "none";
+		    getID('head').innerHTML = "To-Do Items";
 			getID('todoForm').style.display = "none";
-			getID('display').style.display = "none";
-			getID('add').style.display = "inline";
+			getID('display').className = "ui-btn-active ui-state-persist ui-btn-inline ui-btn";
 		} else{
 			getID('todoForm').style.display = "block";
-			getID('display').style.display = "inline";
-			getID('add').style.display = "none";
+			getID('display').className = "";
+			getID('add').className = "ui-btn-active ui-state-persist ui-btn-inline ui-btn";
 			getID('items').style.display = "none";
         }
     }
 
 	function getData () {
 		if (localStorage.length >= 1) {
-			hideForm = true;
-			toggleForm();
+			
+			toggleForm(true);
 			//Write data from local storage to the browser
 			var makeDiv = document.createElement('div');
 			makeDiv.setAttribute("id", "items");
@@ -128,8 +145,8 @@ $(document).ready(function() {
 	
 	
 	function addItem () {
-		hideForm = false;
-		toggleForm();
+		//hideForm = false;
+		toggleForm(false);
 		window.location.reload();
 		return false;
 	}
@@ -171,8 +188,8 @@ $(document).ready(function() {
 		var value = localStorage.getItem(this.key);
 		var item = JSON.parse(value);
 		//show form
-		hideForm = false;
-		toggleForm();
+		//hideForm = false;
+		toggleForm(false);
 		
 		//populate with current values
 		getID('start').value = item.startDate[1];
@@ -289,26 +306,20 @@ $(document).ready(function() {
 		}
 		
 		//Searching by Category and Term
-		//if (category != "" && term != "") {
-		//	
-		//}
+		if (category != "" && term != "") {
+			for (i=0; i<len; i++) {
+				var key = localStorage.key(i);
+				var value = localStorage.getItem(key);
+				var obj = JSON.parse(value);
+				for (n in obj) {
+					if (term == obj[n][1] && category === obj.category[1]){
+						for (q in obj) {
+							console.log(obj[q][1]);
+						}
+					}
+				}
+			}
+		}
 	}
-
-	
-	//Set Link and Submit Click Events
-	var displayLink = getID('display');
-	displayLink.addEventListener("click", getData);
-	var addLink = getID('add');
-	addLink.addEventListener("click", addItem);
-	var clearLink = getID('clear');
-	clearLink.addEventListener("click", clearLocal);
-	var save = getID('submit');
-	save.addEventListener("click", validate);
-	
-	var slider = getID('priority');
-	slider.addEventListener("change", showValue);
-
-	var search = getID('searchBtn');
-	search.addEventListener("click", getSearch);
 
 });

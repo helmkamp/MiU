@@ -25,7 +25,18 @@
 
 	<body>
 		<div class="wrap" data-role="page" data-theme="a">
-			<h1 data-role="header">Search Items</h1>
+			<div data-role="header" data-position="fixed">
+						<h1 id="head">Search Items</h1>
+						<div id="links" data-role="navbar">
+								<ul>
+										<li><a href="index.html" rel="external" id="home">Home</a></li>
+										<li><a href="additem.html" rel="external" id="display">View</a></li>
+										<li><a href="additem.html" rel="external" id="add" >New</a></li>
+										<li><a href="search.html" rel="external" id="searchLink" class="ui-btn-active ui-state-persist">Search</a></li>
+										<li><a href="#" id="clear">Delete</a></li>
+								</ul>
+						</div>
+				</div>
 			<div data-role="content">
 				
 				<div data-role="fieldcontain">

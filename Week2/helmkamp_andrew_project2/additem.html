@@ -20,38 +20,47 @@
 	</head>
 	<body>
 		<div id="wrap" data-role="page" data-theme="a">
-			<h1 id="head">Add a New Item</h1>
-			<a href="#" class="linkSep" id="clear">Clear Stored Data</a>
-			<a href="#" class="linkSep" id="display">Display Data</a>
-			<a href="#" class="linkSep" id="add" style="display:none">Add New Item</a>
-			<a href="search.html" rel="external" id="searchLink">Search</a>
-			<form action="#" method="post" id="todoForm">
-				<fieldset data-role="fieldcontain">
-					<legend>Item Information</legend>
-					<ul id="errors"></ul>
-					<label for="start">Start Date</label>
-					<input type="date" placeholder="MM/DD/YY" id="start" /> <br />
-					<label for="end">Finish Date</label>
-					<input type="date" placeholder="MM/DD/YY" id="end" required /> <br />
-					<label for="itemName">Item Name</label> <input type="text" name="itemName" placeholder="Homework" id="itemName" required /> <br />
-					<label for="category">Catagory</label> 
-					<select name="category" id="category">
-						<option value="Work">Work</option>
-						<option value="School" selected="selected">School</option>
-						<option value="Personal">Personal</option>
-					</select> <br />
-					<label for="priority">Priority</label>
-					<input type="range" name="priority" min="1" max="3" value="1" id="priority" />
-					<span id="priorityNum">1</span>
-					<br />
-					<input type="checkbox" name="highlight" value="Yes" id="highlight" />
-					<label for="highlight">Highlighted</label>
-					<br />
-					<label for="comments">Comments:</label><br /> <textarea rows="3" cols="30" placeholder="Add any additional information." id="comments"></textarea>
-					<input type="hidden" value="true" />
-				</fieldset>
-				<input type="button" value="Add Item" id="submit" />
-			</form>
+				<div data-role="header" data-position="fixed">
+						<h1 id="head">Add a New Item</h1>
+						<div id="links" data-role="navbar">
+								<ul>
+										<li><a href="index.html" rel="external" id="home">Home</a></li>
+										<li><a href="#" id="display">View</a></li>
+										<li><a href="#" id="add" class="ui-btn-active ui-state-persist">New</a></li>
+										<li><a href="search.html" rel="external" id="searchLink">Search</a></li>
+										<li><a href="#" id="clear">Delete</a></li>
+								</ul>
+						</div>
+				</div>
+				<div id="form">
+						<form action="#" method="post" id="todoForm">
+							<fieldset data-role="fieldcontain">
+								<legend>Item Information</legend>
+								<ul id="errors"></ul>
+								<label for="start">Start Date</label>
+								<input type="date" placeholder="MM/DD/YY" id="start" /> <br />
+								<label for="end">Finish Date</label>
+								<input type="date" placeholder="MM/DD/YY" id="end" required /> <br />
+								<label for="itemName">Item Name</label> <input type="text" name="itemName" placeholder="Homework" id="itemName" required /> <br />
+								<label for="category">Catagory</label> 
+								<select name="category" id="category">
+									<option value="Work">Work</option>
+									<option value="School" selected="selected">School</option>
+									<option value="Personal">Personal</option>
+								</select> <br />
+								<label for="priority">Priority</label>
+								<input type="range" name="priority" min="1" max="3" value="1" id="priority" />
+								<span id="priorityNum">1</span>
+								<br />
+								<input type="checkbox" name="highlight" value="Yes" id="highlight" />
+								<label for="highlight">Highlighted</label>
+								<br />
+								<label for="comments">Comments:</label><br /> <textarea rows="3" cols="30" placeholder="Add any additional information." id="comments"></textarea>
+								<input type="hidden" value="true" />
+							</fieldset>
+							<input type="button" value="Add Item" id="submit" />
+						</form>
+				</div>
 		</div>
 		<script type="text/javascript" src="./js/json.js"></script>
 		<script type="text/javascript" src="./js/main.js"></script>
