@@ -19,30 +19,38 @@ $( document ).delegate("#newsstream", "pageinit", function() {
 	
 	function sortObjectsByStartDate(obj, key) {
 	  obj.sort(function() {
+	  	//console.log(obj);
 		return function (a, b){
 		  var startDateA = a[key];
 		  var starteDateB = b[key];
 		  if (startDateA === starteDateB) {
 			return 0;
+
 		  }
 		  return startDateA > starteDateB ? 1 : -1;
 		};
 	  }());
 	}
-	
+	  
 	$.each(localStorage, function(key, val) {
 	  key = localStorage.key(key);
 	  val = localStorage.getItem(key);
 	  var objValue = $.parseJSON(val);
-	  //objValue = sortObjectsByStartDate(objValue.Object, "startDate");
-	  console.log(objValue);
-	  for (n in objValue) {
-		console.log(objValue[n][0] + objValue[n][1]);
-	  }
+	  var todoList = $.makeArray(objValue);
+	  
+	  //console.log(todoList);
+	  $.each(todoList, function(key, val) {
+	  	sortedValue = sortObjectsByStartDate(todoList[key].startDate, "startDate");
+	  	console.log(sortedValue);
+	  });
+
+	 //  for (n in objValue) {
+		// console.log(objValue[n][0] + objValue[n][1]);
+	 //  }
 	});
-	//var output = '<ul data-role="listview" data-filter="true"';
-	//$.each()
 	
+
+	//This will be replaced with the above code once it's complete
 		if (localStorage.length >= 1) {
 			//Write data from local storage to the browser
 			var makeDiv = document.createElement('div');
@@ -84,8 +92,8 @@ $( document ).delegate("#newsstream", "pageinit", function() {
 				//makeItemLinks(localStorage.key(i), linkLi); //Create our edit and delete links for each item
 			}
 		} else{
-			alert("There is no data to display. Test data will be automatically loaded.");
-			autoFillData();
+			alert("There is no data to display.");
+			//autoFillData();
 		}
 	
 });
